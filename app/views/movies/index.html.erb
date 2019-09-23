@@ -1,0 +1,62 @@
+<br>
+<br>
+<h1>   MOVIES </h1>
+<br>
+<h2>  REGULAR MOVIES </h2>
+<br>
+
+
+
+
+<% @regular_movies.each_slice(2) do |two_movies|%>
+<div class="card-deck">
+<% two_movies.each do |movie|%>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-header">Pelicula: <%= "#{movie.name}/ #{movie.year}"%></h5>
+    <br>
+    <p>
+      <%=  link_to 'Ver', movie, class:"btn btn-outline-secondary" %>
+      <%=  link_to 'Editar', edit_movie_path(movie), class:"btn btn-outline-secondary" %>
+      <%=  link_to 'Borrar', movie, method: :delete, data: {confirm: 'Estas seguro?'}, class:"btn btn-outline-secondary" %>
+      <%=  button_to 'Like', favorite_movie_path(movie), class:"btn btn-success" %>
+    </p>
+  </div>
+</div>
+<% end %>
+</div>
+<br>
+<br>
+<% end %>
+
+<hr>
+
+<br>
+<h2>  FAVORITE MOVIES </h2>
+<br>
+
+<% @favorite_movies.each_slice(2) do |two_movies|%>
+<div class="card-deck">
+<% two_movies.each do |movie|%>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+      <h5 class="card-header">Pelicula: <%= "#{movie.name}/ #{movie.year}"%></h5>
+      <br>
+      <p>
+      <%=  link_to 'Ver', movie, class:"btn btn-outline-secondary" %>
+      <%=  link_to 'Editar', edit_movie_path(movie), class:"btn btn-outline-secondary" %>
+      <%=  link_to 'Borrar', movie, method: :delete, data: {confirm: 'Estas seguro?'}, class:"btn btn-outline-secondary" %>
+      <%=  button_to 'Dislike', favorite_movie_path(movie), method: :delete, class:"btn btn-dark" %>
+    </p>
+  </div>
+</div>
+<% end %>
+</div>
+<br>
+<br>
+<% end %>
+
+
+<%= link_to "Crear Peli", movies_new_path, class:"btn btn-info" %>
+<br>
+<br>

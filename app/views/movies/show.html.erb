@@ -1,0 +1,15 @@
+<br>
+<br>
+<h1>MOVIE SHOW</h1>
+<br>
+
+<div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header">Pelicula</div>
+  <div class="card-body text-success">
+    <p><%= "#{@movie.name}/ #{@movie.year}"%></p>
+  </div>
+</div>
+
+
+<br>
+<%= link_to "Volver", movies_path, class:"btn btn-outline-secondary"%>
